@@ -8,10 +8,10 @@ Facter.add("haszfs") do
   end
 
   setcode do
-    if `#{mountcmd}` !~ /zfs/
-      false
-    else
+    if `#{mountcmd}` =~ /zfs/
       true
+    else
+      false
     end
   end
 end
